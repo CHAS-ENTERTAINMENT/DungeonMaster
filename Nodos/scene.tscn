@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dem68t0y1udxl"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_846lx"]
+[ext_resource type="Shader" path="res://Shaders/scene.gdshader" id="1_wqv3l"]
+[ext_resource type="PackedScene" uid="uid://d0cybranx31b7" path="res://Nodos/player.tscn" id="4_ahggq"]
+[ext_resource type="Texture2D" uid="uid://dgru75aq077nn" path="res://Assets/SpriteSheet.png" id="4_anfkv"]
+[ext_resource type="AudioStream" uid="uid://5gg6ri7o08e7" path="res://Assets/Music/xDeviruchi - Prepare for Battle! .wav" id="6_6j21h"]
+[ext_resource type="PackedScene" uid="uid://b23q7mrodeu1f" path="res://Nodos/UI/main_menu.tscn" id="9_o11po"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pk7ow"]
+shader = ExtResource("1_wqv3l")
+shader_parameter/time = 0.0
+shader_parameter/is_active = true
+
+[node name="Scene" type="CanvasLayer"]
+script = ExtResource("1_846lx")
+
+[node name="Player" parent="." instance=ExtResource("4_ahggq")]
+visible = false
+position = Vector2(16, 144)
+
+[node name="HP" type="Node" parent="."]
+
+[node name="1" type="Sprite2D" parent="HP"]
+z_index = 1
+texture_filter = 1
+position = Vector2(16, 8)
+texture = ExtResource("4_anfkv")
+region_enabled = true
+region_rect = Rect2(32, 0, 8, 8)
+
+[node name="2" type="Sprite2D" parent="HP"]
+z_index = 1
+texture_filter = 1
+position = Vector2(24, 8)
+texture = ExtResource("4_anfkv")
+region_enabled = true
+region_rect = Rect2(32, 0, 8, 8)
+
+[node name="3" type="Sprite2D" parent="HP"]
+z_index = 1
+texture_filter = 1
+position = Vector2(32, 8)
+texture = ExtResource("4_anfkv")
+region_enabled = true
+region_rect = Rect2(32, 0, 8, 8)
+
+[node name="MainMenu" parent="." instance=ExtResource("9_o11po")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+material = SubResource("ShaderMaterial_pk7ow")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6j21h")
+volume_db = -17.756
+autoplay = true

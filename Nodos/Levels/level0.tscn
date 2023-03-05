@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://52tbesl3yo3a"]
+
+[ext_resource type="Texture2D" uid="uid://bllbdhrtwj6u1" path="res://Assets/level1.png" id="2_chguh"]
+[ext_resource type="PackedScene" uid="uid://bj5n65vca2qgn" path="res://Nodos/walking_soldier.tscn" id="3_52fhb"]
+[ext_resource type="PackedScene" uid="uid://cuoospkor3m1y" path="res://Nodos/soldier.tscn" id="5_5q4uv"]
+[ext_resource type="TileSet" uid="uid://dxpk887m3hxx5" path="res://Nodos/Levels/new_tile_set.tres" id="5_hfh1c"]
+[ext_resource type="PackedScene" uid="uid://b5eo81kqey2qu" path="res://Nodos/torch.tscn" id="6_j3jhm"]
+
+[node name="Level" type="Node2D"]
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(24, 136)
+
+[node name="Fondo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 80)
+texture = ExtResource("2_chguh")
+
+[node name="Soldados" type="Node" parent="."]
+
+[node name="Soldier" parent="Soldados" instance=ExtResource("5_5q4uv")]
+position = Vector2(184, 88)
+
+[node name="Soldier2" parent="Soldados" instance=ExtResource("3_52fhb")]
+position = Vector2(72, 136)
+
+[node name="Antorchas" type="Node" parent="."]
+
+[node name="Torch" parent="Antorchas" instance=ExtResource("6_j3jhm")]
+position = Vector2(128, 120)
+
+[node name="Torch2" parent="Antorchas" instance=ExtResource("6_j3jhm")]
+position = Vector2(200, 88)
+
+[node name="Torch3" parent="Antorchas" instance=ExtResource("6_j3jhm")]
+position = Vector2(304, 136)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("5_hfh1c")
+format = 2
+layer_0/tile_data = PackedInt32Array(1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1245195, 0, 0, 1245198, 0, 0, 1179662, 0, 0, 1114126, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1114130, 0, 0, 1179666, 0, 0, 1245202, 0, 0, 1114128, 0, 0, 1179664, 0, 0, 917524, 0, 0, 983060, 0, 0, 1048596, 0, 0, 1114132, 0, 0, 1179668, 0, 0, 1245204, 0, 0, 786454, 0, 0, 851990, 0, 0, 917526, 0, 0, 983062, 0, 0, 1048598, 0, 0, 1114134, 0, 0, 1179670, 0, 0, 1245206, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, 0, 0, 851993, 0, 0, 917529, 0, 0, 983065, 0, 0, 1048601, 0, 0, 1114137, 0, 0, 1179673, 0, 0, 1245209, 0, 0, 1048572, 0, 0, 983037, 0, 0, 917532, 0, 0, 983068, 0, 0, 1048604, 0, 0, 1114140, 0, 0, 1179676, 0, 0, 1245212, 0, 0, 983070, 0, 0, 1048606, 0, 0, 1114142, 0, 0, 1179678, 0, 0, 1245214, 0, 0, 1048608, 0, 0, 1114144, 0, 0, 1179680, 0, 0, 1245216, 0, 0, 1114146, 0, 0, 1179682, 0, 0, 1245218, 0, 0, 1179684, 0, 0, 1245220, 0, 0, 1245222, 0, 0, 1245200, 0, 0, 0, 0, 0, 39, 0, 0, 917504, 0, 0, 851968, 0, 0, 786432, 0, 0, 720896, 0, 0, 655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 65575, 0, 0, 131111, 0, 0, 196647, 0, 0, 262183, 0, 0, 327719, 0, 0, 393255, 0, 0, 458791, 0, 0, 524327, 0, 0, 589863, 0, 0, 655399, 0, 0, 720935, 0, 0, 786471, 0, 0, 852007, 0, 0, 917543, 0, 0, 983079, 0, 0, 1048615, 0, 0, 1114151, 0, 0, 1179687, 0, 0, 1245223, 0, 0, 1179685, 0, 0, 1179686, 0, 0, 983038, 0, 0, 983039, 0, 0, 1310716, 0, 0, 1310717, 0, 0, 1310718, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245199, 0, 0, 1245201, 0, 0, 1245203, 0, 0, 1245205, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245213, 0, 0, 1245215, 0, 0, 1245217, 0, 0, 1245219, 0, 0, 1245221, 0, 0, 917531, 0, 0, 1114108, 0, 0, 1179644, 0, 0, 1245180, 0, 0, 983036, 0, 0)

@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5eo81kqey2qu"]
+
+[ext_resource type="Texture2D" uid="uid://dgru75aq077nn" path="res://Assets/SpriteSheet.png" id="1_r2ik0"]
+[ext_resource type="Script" path="res://Scripts/torch.gd" id="2_pbcbu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju5tv"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3riv"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(0, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ackg2"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(8, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ya6g"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(16, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to561"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(24, 8, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alfl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3riv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ackg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ya6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to561")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frftw"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(24, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwprh"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(16, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bah3c"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(8, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu4gx"]
+atlas = ExtResource("1_r2ik0")
+region = Rect2(0, 24, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qippv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frftw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwprh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bah3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu4gx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Sprite2D" type="Area2D" groups=["Torches"]]
+texture_filter = 1
+position = Vector2(0, -8)
+script = ExtResource("2_pbcbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ju5tv")
+
+[node name="AnimatedNormal" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_alfl4")
+autoplay = "default"
+frame_progress = 0.961275
+
+[node name="AnimatedConquered" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_qippv")
+autoplay = "default"
+frame_progress = 0.895426
+
+[connection signal="body_entered" from="." to="." method="_change_torch"]

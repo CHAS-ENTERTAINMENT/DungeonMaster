@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpmrljpkdr5ig"]
+
+[ext_resource type="Script" path="res://Scripts/fireball.gd" id="1_jbxtc"]
+[ext_resource type="Texture2D" uid="uid://b5pg0bjct5hib" path="res://Assets/soldado.png" id="2_csp2x"]
+[ext_resource type="Texture2D" uid="uid://qwxdk3a2n24b" path="res://Assets/Lich.png" id="2_qiqsm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi7ra"]
+atlas = ExtResource("2_csp2x")
+region = Rect2(31, 96, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sywco"]
+atlas = ExtResource("2_csp2x")
+region = Rect2(43, 96, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4d4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi7ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sywco")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxowf"]
+size = Vector2(13.0548, 13.0548)
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_jbxtc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(0.766, 0.766)
+texture = ExtResource("2_qiqsm")
+region_enabled = true
+region_rect = Rect2(114, 16, 12, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.19209e-07, -8)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_l4d4m")
+autoplay = "default"
+frame_progress = 0.609565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.766, 0.766)
+shape = SubResource("RectangleShape2D_cxowf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

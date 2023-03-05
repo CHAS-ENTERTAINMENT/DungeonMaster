@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmtdax4cqpq0m"]
+
+[ext_resource type="FontFile" uid="uid://b630sr0wv8xrk" path="res://Assets/Fonts/DungeonChunk.ttf" id="2_cue1j"]
+[ext_resource type="Texture2D" uid="uid://bllbdhrtwj6u1" path="res://Assets/level1.png" id="2_fq1qk"]
+
+[sub_resource type="GDScript" id="GDScript_kuwbr"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_button_pressed():
+	queue_free()
+"
+
+[node name="CreditsMenu" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_kuwbr")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 160.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(162, 80)
+scale = Vector2(1.18571, 1.11111)
+texture = ExtResource("2_fq1qk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 304.0
+offset_bottom = 152.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cue1j")
+theme_override_font_sizes/font_size = 12
+text = "< VOLVER"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_cue1j")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 14
+bbcode_enabled = true
+text = "[color=gray]Programación:  [color=white]
+     - Óscar Pozo
+[color=gray]Música:[color=white]
+     - Álvaro Navarro
+     - Marllon Silva (xDeviruchi)
+[color=gray]Arte:[color=white]
+     - Óscar Pozo
+     - Walfrido
+[color=gray]Diseño de jugabilidad:[color=white]
+     - Valentín Gutiérrez
+     - Walfrido
+[color=gray]Diseño de niveles:[color=white]
+     - Óscar Pozo
+
+[color=gray]Engine: [color=white]Godot 4.0
+[color=gray]Fuente: [color=white]Dungeon Chunk by Joshua Skelton
+
+Desarrollado para participar en [color=purple]The Final Game Jam (2023)[color=white]."
+tab_size = 3
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

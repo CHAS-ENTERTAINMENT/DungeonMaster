@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj5n65vca2qgn"]
+
+[ext_resource type="Texture2D" uid="uid://dgru75aq077nn" path="res://Assets/SpriteSheet.png" id="1_di201"]
+[ext_resource type="Script" path="res://Scripts/walking_soldier.gd" id="1_rurl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhp1o"]
+size = Vector2(16, 16)
+
+[node name="Soldier" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 3
+script = ExtResource("1_rurl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dhp1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(2, 2)
+texture = ExtResource("1_di201")
+region_enabled = true
+region_rect = Rect2(40, 0, 8, 8)
+
+[node name="RayCastR" type="RayCast2D" parent="."]
+position = Vector2(5, 7)
+target_position = Vector2(0, 4)
+
+[node name="RayCastL" type="RayCast2D" parent="."]
+position = Vector2(-5, 7)
+target_position = Vector2(0, 4)

@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bdwyjfdqnkm2p"]
+
+[ext_resource type="FontFile" uid="uid://b630sr0wv8xrk" path="res://Assets/Fonts/DungeonChunk.ttf" id="1_13n1m"]
+
+[resource]
+font = ExtResource("1_13n1m")
